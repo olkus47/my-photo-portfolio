@@ -1,14 +1,43 @@
 const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
+const sharp = require('sharp');
 
 const dataPath = path.join(__dirname, 'gallery-data.js');
 const photosDir = path.join(__dirname, 'photos');
+const photosOriginalDir = path.join(__dirname, 'photos_original');
 
-// Ensure photos directory exists
+// Ensure photos_original directory exists
+if (!fs.existsSync(photosOriginalDir)) {
+  fs.mkdirSync(photosOriginalDir);
+  console.log('Created photos_original/ directory. Place your high-resolution original images here.');
+}
+
+// Automatically migrate existing folders from photos/ to photos_original/ if they exist
+const foldersToMigrate = ['Nature', 'Portraits', 'Random'];
+foldersToMigrate.forEach(folder => {
+  const oldPath = path.join(photosDir, folder);
+  const newPath = path.join(photosOriginalDir, folder);
+  if (fs.existsSync(oldPath)) {
+    if (!fs.existsSync(newPath)) {
+      try {
+        // Create parent folders if necessary
+        const parentDir = path.dirname(newPath);
+        if (!fs.existsSync(parentDir)) {
+          fs.mkdirSync(parentDir, { recursive: true });
+        }
+        fs.renameSync(oldPath, newPath);
+        console.log(`Migrated existing folder "${folder}" from photos/ to photos_original/`);
+      } catch (err) {
+        console.error(`Failed to migrate "${folder}" folder:`, err.message);
+      }
+    }
+  }
+});
+
+// Ensure photos directory exists (for optimized images)
 if (!fs.existsSync(photosDir)) {
   fs.mkdirSync(photosDir);
-  console.log('Created photos/ directory. Place your images there.');
 }
 
 // Default config
@@ -104,7 +133,7 @@ async function getExifCameraSettings(filePath) {
   return null;
 }
 
-// Scan photos directory recursively
+// Scan directory recursively
 const allowedExtensions = ['.jpg', '.jpeg', '.png', '.webp', '.gif', '.svg'];
 
 function scanDir(dir, baseDir = '') {
@@ -127,7 +156,8 @@ function scanDir(dir, baseDir = '') {
           fullPath,
           relativePath,
           filename: file,
-          folderCategory
+          folderCategory,
+          stat
         });
       }
     }
@@ -135,15 +165,81 @@ function scanDir(dir, baseDir = '') {
   return results;
 }
 
-const imageFiles = scanDir(photosDir);
-console.log(`Found ${imageFiles.length} image files in photos/ directory.`);
+// Scan original photos directory
+const originalImages = scanDir(photosOriginalDir);
+console.log(`Found ${originalImages.length} image files in photos_original/ directory.`);
+
+// Helper to optimize image using sharp
+async function optimizeImage(srcPath, destPath) {
+  const ext = path.extname(srcPath).toLowerCase();
+  
+  // Ensure destination parent directory exists
+  const destDir = path.dirname(destPath);
+  if (!fs.existsSync(destDir)) {
+    fs.mkdirSync(destDir, { recursive: true });
+  }
+
+  const transformer = sharp(srcPath)
+    .resize({
+      width: 2048,
+      height: 2048,
+      fit: 'inside',
+      withoutEnlargement: true
+    });
+
+  if (ext === '.jpg' || ext === '.jpeg') {
+    await transformer.jpeg({ quality: 85, progressive: true }).toFile(destPath);
+  } else if (ext === '.png') {
+    await transformer.png({ quality: 80, palette: true }).toFile(destPath);
+  } else if (ext === '.webp') {
+    await transformer.webp({ quality: 85 }).toFile(destPath);
+  } else {
+    // For gif, svg or other allowed extensions, just copy the file directly
+    fs.copyFileSync(srcPath, destPath);
+  }
+}
 
 // Sync photos list
 const updatedPhotos = [];
 
 async function syncPhotos() {
-  for (const img of imageFiles) {
+  for (const img of originalImages) {
     const photoSrc = `photos/${img.relativePath}`;
+    const destFullPath = path.join(photosDir, img.relativePath);
+    
+    // Check if we need to optimize this image
+    let needsOptimize = true;
+    if (fs.existsSync(destFullPath)) {
+      const destStat = fs.statSync(destFullPath);
+      if (destStat.mtimeMs >= img.stat.mtimeMs) {
+        needsOptimize = false;
+      }
+    }
+
+    if (needsOptimize) {
+      console.log(`Optimizing: ${img.relativePath}...`);
+      try {
+        await optimizeImage(img.fullPath, destFullPath);
+        const optStat = fs.statSync(destFullPath);
+        const savedKB = Math.round((img.stat.size - optStat.size) / 1024);
+        const percent = Math.round(((img.stat.size - optStat.size) / img.stat.size) * 100);
+        console.log(`  Saved ${savedKB} KB (${percent}% reduction) -> ${Math.round(optStat.size / 1024)} KB`);
+      } catch (err) {
+        console.error(`  Failed to optimize ${img.relativePath}:`, err.message);
+        // Fallback: Copy original if sharp fails
+        try {
+          const destDir = path.dirname(destFullPath);
+          if (!fs.existsSync(destDir)) fs.mkdirSync(destDir, { recursive: true });
+          fs.copyFileSync(img.fullPath, destFullPath);
+          console.log(`  Fallback: copied original file for ${img.relativePath}`);
+        } catch (copyErr) {
+          console.error(`  Fallback copy failed:`, copyErr.message);
+        }
+      }
+    } else {
+      // Skipped message is optional, keeping console clean
+    }
+
     const existingPhoto = config.photos.find(p => p.src === photoSrc);
 
     if (existingPhoto) {
@@ -178,7 +274,7 @@ async function syncPhotos() {
           .replace(/\b\w/g, c => c.toUpperCase());
       }
 
-      // Try to read EXIF camera settings
+      // Try to read EXIF camera settings (always from original image)
       const exifSettings = await getExifCameraSettings(img.fullPath);
       const cameraSettings = exifSettings || fileCameraSettings || 'Camera details';
 
