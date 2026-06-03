@@ -11,7 +11,7 @@ const GALLERY_CONFIG = {
     "personal instagram": "https://instagram.com/olkuuus",
     "photo instagram": "https://instagram.com/ph.olkuu",
     "email": "mailto:[olha.vilkhova47@gmail.com]",
-    "unsplash": "https://unsplash.com"
+    "unsplash": "https://unsplash.com/@olkus"
   },
   "photos": [
     {
