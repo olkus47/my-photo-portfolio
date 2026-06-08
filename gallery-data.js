@@ -239,13 +239,6 @@ const GALLERY_CONFIG = {
       "cameraSettings": "NIKON D5100 • 35mm • f/5 • 1/60s • ISO 3200"
     },
     {
-      "id": "photo_1780426829014_od1k6k2w9",
-      "src": "photos/Portraits/Nzr3.jpg",
-      "title": "Nzr3",
-      "category": "Portraits",
-      "cameraSettings": "NIKON D5100 • 34mm • f/5.6 • 1/60s • ISO 1600"
-    },
-    {
       "id": "photo_1780426829015_uxr43gaqg",
       "src": "photos/Portraits/Nzr4.jpg",
       "title": "Nzr4",
