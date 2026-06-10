@@ -141,13 +141,6 @@ const GALLERY_CONFIG = {
       "cameraSettings": "NIKON D5100 • 18mm • f/5 • 1/100s • ISO 1600"
     },
     {
-      "id": "photo_1780440612385_tzrtfh5qq",
-      "src": "photos/Portraits/A3.jpg",
-      "title": "A3",
-      "category": "Portraits",
-      "cameraSettings": "NIKON D5100 • 32mm • f/5 • 1/80s • ISO 1600"
-    },
-    {
       "id": "photo_1780440612388_g9gfvvcic",
       "src": "photos/Portraits/A4.jpg",
       "title": "A4",
