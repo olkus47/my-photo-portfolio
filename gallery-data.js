@@ -6,7 +6,7 @@
 const GALLERY_CONFIG = {
   "photographerName": "Olha Vilkhova",
   "photographerTitle": "Visual Artist & Photographer",
-  "photographerBio": "Not proffesional, but I am making photos with passion =)           (pls believe me)",
+  "photographerBio": "Not professional, but I am making photos with passion =)           (pls believe me)",
   "socialLinks": {
     "personal instagram": "https://instagram.com/olkuuus",
     "photo instagram": "https://instagram.com/ph.olkuu",
