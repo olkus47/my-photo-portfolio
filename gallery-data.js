@@ -15,6 +15,20 @@ const GALLERY_CONFIG = {
   },
   "photos": [
     {
+      "id": "photo_1780441000001_nat_dash",
+      "src": "photos/Nature/-.jpg",
+      "title": "-",
+      "category": "Nature",
+      "cameraSettings": "NIKON D5100 • 48mm • f/8 • 1/250s • ISO 140"
+    },
+    {
+      "id": "photo_1780441000002_nat_dots",
+      "src": "photos/Nature/....jpg",
+      "title": "...",
+      "category": "Nature",
+      "cameraSettings": "NIKON D5100 • 26mm • f/20 • 1/400s • ISO 1600"
+    },
+    {
       "id": "photo_1780425408302_9yc387k15",
       "src": "photos/Nature/DSC_0613.jpg",
       "title": " ",
@@ -57,6 +71,20 @@ const GALLERY_CONFIG = {
       "cameraSettings": "iPhone 12 Pro Max • 5.1mm • f/1.6 • 1/9200s • ISO 32"
     },
     {
+      "id": "photo_1780441000005_nat_windy",
+      "src": "photos/Nature/its giving windy.jpg",
+      "title": "Its Giving Windy",
+      "category": "Nature",
+      "cameraSettings": "NIKON D5100 • 36mm • f/5 • 1/2500s • ISO 100"
+    },
+    {
+      "id": "photo_1780441000003_nat_kuh",
+      "src": "photos/Nature/Kuh.jpg",
+      "title": "Kuh",
+      "category": "Nature",
+      "cameraSettings": "NIKON D5100 • 55mm • f/5.6 • 1/2000s • ISO 320"
+    },
+    {
       "id": "photo_1780427366135_s1hemn8ap",
       "src": "photos/Nature/looks like a movie.jpg",
       "title": "Looks Like A Movie",
@@ -78,11 +106,39 @@ const GALLERY_CONFIG = {
       "cameraSettings": "NIKON D5100 • 20mm • f/5.6 • 1/4000s • ISO 160"
     },
     {
+      "id": "photo_1780441000006_nat_gulls",
+      "src": "photos/Nature/seagulls.jpg",
+      "title": "Seagulls",
+      "category": "Nature",
+      "cameraSettings": "NIKON D5100 • 55mm • f/8 • 1/250s • ISO 140"
+    },
+    {
+      "id": "photo_1780441000004_nat_seealp",
+      "src": "photos/Nature/Seealpsee.jpg",
+      "title": "Seealpsee",
+      "category": "Nature",
+      "cameraSettings": "NIKON D5100 • 46mm • f/10 • 1/400s • ISO 100"
+    },
+    {
       "id": "photo_1780427366137_vfsp3y6mp",
       "src": "photos/Nature/sky.jpg",
       "title": "Sky",
       "category": "Nature",
       "cameraSettings": "iPhone 12 Pro Max • 1.54mm • f/2.4 • 1/150s • ISO 25"
+    },
+    {
+      "id": "photo_1780441000007_nat_beer",
+      "src": "photos/Nature/small man with beer.jpg",
+      "title": "Small Man With Beer",
+      "category": "Nature",
+      "cameraSettings": "NIKON D5100 • 55mm • f/5.6 • 1/1250s • ISO 250"
+    },
+    {
+      "id": "photo_1780441000008_nat_swiss",
+      "src": "photos/Nature/swiss enough.jpg",
+      "title": "Swiss Enough",
+      "category": "Nature",
+      "cameraSettings": "NIKON D5100 • 18mm • f/13 • 1/640s • ISO 100"
     },
     {
       "id": "photo_1780427366138_1ggcjzyy6",
@@ -148,6 +204,41 @@ const GALLERY_CONFIG = {
       "cameraSettings": "NIKON D5100 • 24mm • f/5 • 1/80s • ISO 1600"
     },
     {
+      "id": "photo_1780441000009_prt_ann1",
+      "src": "photos/Portraits/Ann1.jpg",
+      "title": "Ann1",
+      "category": "Portraits",
+      "cameraSettings": "NIKON D7500 • 26mm • f/4.5 • 1/250s • ISO 800"
+    },
+    {
+      "id": "photo_1780441000010_prt_ann2",
+      "src": "photos/Portraits/Ann2.jpg",
+      "title": "Ann2",
+      "category": "Portraits",
+      "cameraSettings": "NIKON D7500 • 32mm • f/4.5 • 1/250s • ISO 800"
+    },
+    {
+      "id": "photo_1780441000011_prt_ann3",
+      "src": "photos/Portraits/Ann3.jpg",
+      "title": "Ann3",
+      "category": "Portraits",
+      "cameraSettings": "NIKON D7500 • 66mm • f/5 • 1/250s • ISO 800"
+    },
+    {
+      "id": "photo_1780441000012_prt_ann4",
+      "src": "photos/Portraits/Ann4.jpg",
+      "title": "Ann4",
+      "category": "Portraits",
+      "cameraSettings": "NIKON D7500 • 60mm • f/5 • 1/125s • ISO 800"
+    },
+    {
+      "id": "photo_1780441000013_prt_ann5",
+      "src": "photos/Portraits/Ann5.jpg",
+      "title": "Ann5",
+      "category": "Portraits",
+      "cameraSettings": "NIKON D7500 • 70mm • f/5 • 1/125s • ISO 800"
+    },
+    {
       "id": "photo_1780440612389_s60vbbdyp",
       "src": "photos/Portraits/Brightstar.jpg",
       "title": "Brightstar",
@@ -160,6 +251,13 @@ const GALLERY_CONFIG = {
       "title": "Cmfrt",
       "category": "Portraits",
       "cameraSettings": "iPhone 12 Pro Max • 5.1mm • f/1.6 • 1/60s • ISO 400"
+    },
+    {
+      "id": "photo_1780441000019_prt_diary",
+      "src": "photos/Portraits/dear diary....jpg",
+      "title": "Dear Diary...",
+      "category": "Portraits",
+      "cameraSettings": "NIKON D5100 • 55mm • f/5.6 • 1/800s • ISO 3200"
     },
     {
       "id": "photo_1780440612391_6rsnw00wl",
@@ -211,11 +309,53 @@ const GALLERY_CONFIG = {
       "cameraSettings": "NIKON D7500 • 27mm • f/4.5 • 1/20s • ISO 2000"
     },
     {
+      "id": "photo_1780441000020_prt_mates",
+      "src": "photos/Portraits/mates.jpg",
+      "title": "Mates",
+      "category": "Portraits",
+      "cameraSettings": "NIKON D5100 • 55mm • f/5.6 • 1/1000s • ISO 1250"
+    },
+    {
       "id": "photo_1780426829012_gofvdfmhz",
       "src": "photos/Portraits/metro.jpg",
       "title": "Metro",
       "category": "Portraits",
       "cameraSettings": "NIKON D5100 • 18mm • f/5.6 • 1/80s • ISO 2500"
+    },
+    {
+      "id": "photo_1780441000014_prt_mrk1",
+      "src": "photos/Portraits/Mrk1.jpg",
+      "title": "Mrk1",
+      "category": "Portraits",
+      "cameraSettings": "NIKON D5100 • 55mm • f/9 • 1/320s • ISO 100"
+    },
+    {
+      "id": "photo_1780441000015_prt_mrk2",
+      "src": "photos/Portraits/Mrk2.jpg",
+      "title": "Mrk2",
+      "category": "Portraits",
+      "cameraSettings": "NIKON D5100 • 34mm • f/8 • 1/250s • ISO 110"
+    },
+    {
+      "id": "photo_1780441000016_prt_mrk3",
+      "src": "photos/Portraits/Mrk3.jpg",
+      "title": "Mrk3",
+      "category": "Portraits",
+      "cameraSettings": "NIKON D5100 • 20mm • f/3.8 • 1/60s • ISO 2200"
+    },
+    {
+      "id": "photo_1780441000017_prt_mrk4",
+      "src": "photos/Portraits/Mrk4.jpg",
+      "title": "Mrk4",
+      "category": "Portraits",
+      "cameraSettings": "NIKON D5100 • 55mm • f/8 • 1/250s • ISO 100"
+    },
+    {
+      "id": "photo_1780441000021_prt_myself",
+      "src": "photos/Portraits/my-self.jpg",
+      "title": "My Self",
+      "category": "Portraits",
+      "cameraSettings": "NIKON D5100 • 26mm • f/4.2 • 1/30s • ISO 800"
     },
     {
       "id": "photo_1780426829013_9em7woasl",
@@ -267,6 +407,20 @@ const GALLERY_CONFIG = {
       "cameraSettings": "NIKON D5100 • 36mm • f/5.6 • 1/1000s • ISO 125"
     },
     {
+      "id": "photo_1780441000018_prt_rumor",
+      "src": "photos/Portraits/Rumor has it that he's still standing there.jpg",
+      "title": "Rumor Has It That He's Still Standing There",
+      "category": "Portraits",
+      "cameraSettings": "NIKON D5100 • 55mm • f/5.6 • 1/1000s • ISO 1000"
+    },
+    {
+      "id": "photo_1780441000022_prt_sfa",
+      "src": "photos/Portraits/sfa.jpg",
+      "title": "Sfa",
+      "category": "Portraits",
+      "cameraSettings": "NIKON D5100 • 18mm • f/3.5 • 1/60s • ISO 3200"
+    },
+    {
       "id": "photo_1780440857801_7cr7cf7zu",
       "src": "photos/Portraits/vsr.jpg",
       "title": "Vsr",
@@ -316,6 +470,27 @@ const GALLERY_CONFIG = {
       "cameraSettings": "NIKON D5100 • 30mm • f/4.5 • 1/40s • ISO 1250"
     },
     {
+      "id": "photo_1780441000023_rnd_fest",
+      "src": "photos/Random/fest.jpg",
+      "title": "Fest",
+      "category": "Random",
+      "cameraSettings": "NIKON D5100 • 18mm • f/3.5 • 1/13s • ISO 3200"
+    },
+    {
+      "id": "photo_1780441000024_rnd_flavers",
+      "src": "photos/Random/flavers.jpg",
+      "title": "Flavers",
+      "category": "Random",
+      "cameraSettings": "NIKON D5100 • 38mm • f/5 • 1/400s • ISO 800"
+    },
+    {
+      "id": "photo_1780441000025_rnd_accident",
+      "src": "photos/Random/i took this pic by accident.jpg",
+      "title": "I Took This Pic By Accident",
+      "category": "Random",
+      "cameraSettings": "NIKON D5100 • 44mm • f/5.6 • 1/1000s • ISO 1000"
+    },
+    {
       "id": "photo_1780427366147_wko9ywf1p",
       "src": "photos/Random/isn't it random.jpg",
       "title": "Isn'T It Random",
@@ -335,6 +510,13 @@ const GALLERY_CONFIG = {
       "title": "Let'S Dance",
       "category": "Random",
       "cameraSettings": "iPhone 12 Pro Max • 1.54mm • f/2.4 • 1/60s • ISO 400"
+    },
+    {
+      "id": "photo_1780441000026_rnd_pingpong",
+      "src": "photos/Random/ping-pong.jpg",
+      "title": "Ping Pong",
+      "category": "Random",
+      "cameraSettings": "NIKON D5100 • 32mm • f/4.8 • 1/320s • ISO 400"
     },
     {
       "id": "photo_1780427366152_znwfpdosr",
@@ -363,6 +545,13 @@ const GALLERY_CONFIG = {
       "title": "Talk",
       "category": "Random",
       "cameraSettings": "NIKON D5100 • 48mm • f/5.6 • 1/40s • ISO 800"
+    },
+    {
+      "id": "photo_1780441000027_rnd_tunnel",
+      "src": "photos/Random/tunnel.jpg",
+      "title": "Tunnel",
+      "category": "Random",
+      "cameraSettings": "NIKON D5100 • 48mm • f/5.3 • 1/15s • ISO 3200"
     },
     {
       "id": "photo_1780427366156_1fabwcnkx",

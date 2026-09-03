@@ -393,7 +393,29 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ----------------------------------------------------
-   * 7. Initialization Trigger
+   * 7. Back to Top Floating Button
+   * ---------------------------------------------------- */
+  const backToTopBtn = document.getElementById('backToTop');
+  
+  if (backToTopBtn) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    }, { passive: true });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+
+  /* ----------------------------------------------------
+   * 8. Initialization Trigger
    * ---------------------------------------------------- */
   initTheme();
   loadPhotographerInfo();

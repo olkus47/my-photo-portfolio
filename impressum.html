@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Impressum und rechtliche Hinweise von Olha Vilkhova Photography (Schweiz).">
+  <meta name="theme-color" content="#080808">
+  <title>Impressum | Olha Vilkhova Photography</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.svg">
+  
+  <!-- Modern Typography from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    .impressum-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      padding-top: 1rem;
+    }
+
+    .back-nav {
+      margin-bottom: 2.5rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition-fast);
+      letter-spacing: 0.03em;
+    }
+
+    .back-link:hover {
+      color: var(--text-primary);
+      transform: translateX(-3px);
+    }
+
+    .impressum-card {
+      background-color: var(--panel-bg);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--border-radius);
+      padding: 2.5rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .impressum-title {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .impressum-subtitle {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .impressum-section {
+      margin-bottom: 2rem;
+    }
+
+    .impressum-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .impressum-section h2 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      margin-bottom: 0.8rem;
+      color: var(--text-primary);
+    }
+
+    .impressum-section p, .impressum-section ul {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 0.8rem;
+    }
+
+    .impressum-section a {
+      color: var(--text-primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: var(--transition-fast);
+    }
+
+    .impressum-section a:hover {
+      color: var(--text-secondary);
+    }
+
+    .contact-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .contact-list li {
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 0.6rem;
+    }
+
+    .contact-list strong {
+      color: var(--text-primary);
+      min-width: 100px;
+    }
+
+    .badge-ch {
+      display: inline-block;
+      background-color: var(--panel-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.25rem 0.6rem;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 640px) {
+      .impressum-card {
+        padding: 1.5rem;
+      }
+      .impressum-title {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Glow -->
+  <div class="ambient-glow" id="ambientGlow"></div>
+
+  <!-- Container -->
+  <div class="portfolio-container">
+    
+    <!-- Top Header -->
+    <header class="portfolio-header" style="margin-bottom: 1.5rem;">
+      <div class="header-top">
+        <a href="index.html" class="photographer-name" style="text-decoration: none; color: inherit;">Olha Vilkhova</a>
+        
+        <!-- Theme Toggle Button -->
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle visual theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Impressum Content -->
+    <main class="impressum-wrapper">
+      
+      <div class="back-nav">
+        <a href="index.html" class="back-link">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"></path>
+          </svg>
+          Back to Gallery / Zurück zur Galerie
+        </a>
+      </div>
+
+      <article class="impressum-card">
+        <h1 class="impressum-title">Impressum</h1>
+        <p class="impressum-subtitle">Rechtliche Hinweise & Informationen gemäss Schweizer Recht (Art. 3 Abs. 1 lit. s UWG)</p>
+
+        <!-- Section 1: Contact -->
+        <section class="impressum-section">
+          <h2>Kontakt & Angaben</h2>
+          <ul class="contact-list">
+            <li><strong>Name:</strong> Olha Vilkhova</li>
+            <li><strong>Standort:</strong> Schweiz / Switzerland 🇨🇭</li>
+            <li><strong>E-Mail:</strong> <a href="mailto:olha.vilkhova47@gmail.com">olha.vilkhova47@gmail.com</a></li>
+            <li><strong>Instagram:</strong> <a href="https://instagram.com/ph.olkuu" target="_blank" rel="noopener">@ph.olkuu</a> &bull; <a href="https://instagram.com/olkuuus" target="_blank" rel="noopener">@olkuuus</a></li>
+          </ul>
+        </section>
+
+        <!-- Section 2: Copyright -->
+        <section class="impressum-section">
+          <h2>Urheberrechte (Copyright)</h2>
+          <p>
+            Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotografien oder anderen Dateien auf dieser Website gehören ausschliesslich <strong>Olha Vilkhova</strong>.
+          </p>
+          <p>
+            Für die Reproduktion, Bearbeitung, Verbreitung oder jegliche Art der Verwertung jeglicher Elemente ist die schriftliche Zustimmung der Urheberrechtsträgerin im Voraus einzuholen.
+          </p>
+        </section>
+
+        <!-- Section 3: Disclaimer -->
+        <section class="impressum-section">
+          <h2>Haftungsausschluss (Disclaimer)</h2>
+          <p>
+            <strong>Haftung für Inhalte:</strong> Die Inhalte dieser Website wurden mit grösster Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird jedoch keine Gewähr übernommen.
+          </p>
+          <p>
+            <strong>Haftung für Links:</strong> Verweise und Links auf Webseiten Dritter liegen ausserhalb unseres Verantwortungsbereichs. Es wird jegliche Verantwortung für solche Webseiten abgelehnt. Der Zugriff und die Nutzung solcher Webseiten erfolgen auf eigene Gefahr des Nutzers.
+          </p>
+        </section>
+
+        <!-- Section 4: Data Protection -->
+        <section class="impressum-section">
+          <h2>Datenschutz (Swiss FADP / DSG)</h2>
+          <p>
+            Gestützt auf Artikel 13 der Schweizerischen Bundesverfassung und die datenschutzrechtlichen Bestimmungen des Bundes (Datenschutzgesetz, DSG) hat jede Person Anspruch auf Schutz ihrer Privatsphäre sowie auf Schutz vor Missbrauch ihrer persönlichen Daten. Wir halten diese Bestimmungen ein.
+          </p>
+          <p>
+            In Zusammenarbeit mit unseren Hosting-Providern bemühen wir uns, die Datenbanken so gut wie möglich vor fremden Zugriffen, Verlusten, Missbrauch oder vor Fälschung zu schützen.
+          </p>
+        </section>
+
+      </article>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="portfolio-footer">
+      <p>&copy; <span id="footerYear">2026</span> Olha Vilkhova. All rights reserved. &bull; <a href="index.html" class="footer-link">Portfolio</a></p>
+    </footer>
+
+  </div>
+
+  <!-- Back to Top Floating Button -->
+  <button id="backToTop" class="back-to-top-btn" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <script>
+    // Theme switcher script for Impressum page
+    const htmlElement = document.documentElement;
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
+    htmlElement.setAttribute('data-theme', savedTheme);
+
+    themeToggleBtn.addEventListener('click', () => {
+      const currentTheme = htmlElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      htmlElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('portfolio-theme', newTheme);
+    });
+
+    // Back to Top button logic
+    const backToTopBtn = document.getElementById('backToTop');
+    if (backToTopBtn) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          backToTopBtn.classList.add('visible');
+        } else {
+          backToTopBtn.classList.remove('visible');
+        }
+      }, { passive: true });
+
+      backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  </script>
+</body>
+</html>

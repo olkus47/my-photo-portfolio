@@ -13,27 +13,59 @@ if (!fs.existsSync(photosOriginalDir)) {
   console.log('Created photos_original/ directory. Place your high-resolution original images here.');
 }
 
-// Automatically migrate existing folders from photos/ to photos_original/ if they exist
-const foldersToMigrate = ['Nature', 'Portraits', 'Random'];
-foldersToMigrate.forEach(folder => {
-  const oldPath = path.join(photosDir, folder);
-  const newPath = path.join(photosOriginalDir, folder);
-  if (fs.existsSync(oldPath)) {
-    if (!fs.existsSync(newPath)) {
+// Automatically migrate any original photo files placed in photos/ over to photos_original/
+const allowedExtensions = ['.jpg', '.jpeg', '.png', '.webp', '.gif', '.svg'];
+
+function scanDir(dir, baseDir = '') {
+  let results = [];
+  if (!fs.existsSync(dir)) return results;
+  
+  const list = fs.readdirSync(dir);
+  list.forEach(file => {
+    const fullPath = path.join(dir, file);
+    const stat = fs.statSync(fullPath);
+    if (stat && stat.isDirectory()) {
+      results = results.concat(scanDir(fullPath, path.join(baseDir, file)));
+    } else {
+      const ext = path.extname(file).toLowerCase();
+      if (allowedExtensions.includes(ext)) {
+        const relativePath = path.join(baseDir, file).replace(/\\/g, '/');
+        const firstPart = baseDir ? baseDir.replace(/\\/g, '/').split('/')[0] : '';
+        const folderCategory = firstPart ? firstPart.charAt(0).toUpperCase() + firstPart.slice(1) : 'General';
+        results.push({
+          fullPath,
+          relativePath,
+          filename: file,
+          folderCategory,
+          stat
+        });
+      }
+    }
+  });
+  return results;
+}
+
+function autoMigrateNewPhotos() {
+  if (!fs.existsSync(photosDir)) return;
+  const photosInPublicDir = scanDir(photosDir);
+  photosInPublicDir.forEach(img => {
+    const destOrigPath = path.join(photosOriginalDir, img.relativePath);
+    if (!fs.existsSync(destOrigPath)) {
       try {
-        // Create parent folders if necessary
-        const parentDir = path.dirname(newPath);
+        const parentDir = path.dirname(destOrigPath);
         if (!fs.existsSync(parentDir)) {
           fs.mkdirSync(parentDir, { recursive: true });
         }
-        fs.renameSync(oldPath, newPath);
-        console.log(`Migrated existing folder "${folder}" from photos/ to photos_original/`);
+        fs.renameSync(img.fullPath, destOrigPath);
+        console.log(`Migrated new original photo "${img.relativePath}" to photos_original/`);
       } catch (err) {
-        console.error(`Failed to migrate "${folder}" folder:`, err.message);
+        console.error(`Failed to migrate "${img.relativePath}":`, err.message);
       }
     }
-  }
-});
+  });
+}
+
+autoMigrateNewPhotos();
 
 // Ensure photos directory exists (for optimized images)
 if (!fs.existsSync(photosDir)) {
@@ -133,37 +165,7 @@ async function getExifCameraSettings(filePath) {
   return null;
 }
 
-// Scan directory recursively
-const allowedExtensions = ['.jpg', '.jpeg', '.png', '.webp', '.gif', '.svg'];
 
-function scanDir(dir, baseDir = '') {
-  let results = [];
-  if (!fs.existsSync(dir)) return results;
-  
-  const list = fs.readdirSync(dir);
-  list.forEach(file => {
-    const fullPath = path.join(dir, file);
-    const stat = fs.statSync(fullPath);
-    if (stat && stat.isDirectory()) {
-      results = results.concat(scanDir(fullPath, path.join(baseDir, file)));
-    } else {
-      const ext = path.extname(file).toLowerCase();
-      if (allowedExtensions.includes(ext)) {
-        const relativePath = path.join(baseDir, file).replace(/\\/g, '/');
-        const firstPart = baseDir ? baseDir.replace(/\\/g, '/').split('/')[0] : '';
-        const folderCategory = firstPart ? firstPart.charAt(0).toUpperCase() + firstPart.slice(1) : 'General';
-        results.push({
-          fullPath,
-          relativePath,
-          filename: file,
-          folderCategory,
-          stat
-        });
-      }
-    }
-  });
-  return results;
-}
 
 // Scan original photos directory
 const originalImages = scanDir(photosOriginalDir);
